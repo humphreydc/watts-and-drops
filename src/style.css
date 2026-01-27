@@ -12,3 +12,15 @@
     --bg-main-color: #F7F9FB;
     --primary-color: #25B85D;
 }
+
+@layer components {
+  .card-border {
+    @apply bg-(--bg-color) rounded-xl border p-3 sm:p-6 border-gray-200 flex 
+    justify-between shadow-sm hover:-translate-y-1 transition-all
+  }
+
+  .percentage-bar {
+    @apply w-full h-10 rounded-full border-2 border-gray-200 bg-gray-100
+  }
+
+}
