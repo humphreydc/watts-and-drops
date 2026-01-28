@@ -5,6 +5,7 @@ import SidePanel from '@/components/common/SidePanel.vue';
 import Heading from '@/components/common/Heading.vue';
 import ResourceCards from '@/components/dashboard/ResourceCards.vue';
 import Foot from '@/components/common/Foot.vue';
+import Request from '@/components/sections/Request.vue';
 import Resolution from '@/components/sections/Resolution.vue';
 
 const isCollapsed = ref(true);
@@ -13,6 +14,8 @@ const currentSection = ref('overview');
 const handleNavigation = (sectionId) => {
   currentSection.value = sectionId;
 }
+
+const toggleSidebar = () => {
   isCollapsed.value = !isCollapsed.value
 }
 
