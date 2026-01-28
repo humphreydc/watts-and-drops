@@ -5,8 +5,8 @@ import SidePanel from '@/components/common/SidePanel.vue';
 import Heading from '@/components/common/Heading.vue';
 import ResourceCards from '@/components/dashboard/ResourceCards.vue';
 import Foot from '@/components/common/Foot.vue';
-import Request from '@/components/sections/Request.vue';
-import Resolution from '@/components/sections/Resolution.vue';
+import Request from '@/components/sections/admin/Request.vue';
+import Resolution from '@/components/sections/admin/Resolution.vue';
 
 const isCollapsed = ref(true);
 const currentSection = ref('overview');

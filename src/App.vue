@@ -1,7 +1,8 @@
 <script setup>
-import Dashboard from '@/views/Dashboard.vue'
+import AdminDashboard from '@/views/AdminDashboard.vue'
+import StudentDashboard from '@/views/StudentDashboard.vue'
 </script>
 
 <template>
-    <Dashboard/>
+    <AdminDashboard/>
 </template>
