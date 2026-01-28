@@ -5,11 +5,14 @@ import SidePanel from '@/components/common/SidePanel.vue';
 import Heading from '@/components/common/Heading.vue';
 import ResourceCards from '@/components/dashboard/ResourceCards.vue';
 import Foot from '@/components/common/Foot.vue';
-import Request from '@/components/sections/Request.vue';
+import Resolution from '@/components/sections/Resolution.vue';
 
 const isCollapsed = ref(true);
+const currentSection = ref('overview');
 
-const toggleSidebar = () => {
+const handleNavigation = (sectionId) => {
+  currentSection.value = sectionId;
+}
   isCollapsed.value = !isCollapsed.value
 }
 
@@ -34,7 +37,7 @@ const closeSidebar = () => {
                 class="fixed inset-y-0 left-0 z-50 transition-transform duration-300 transform lg:relative lg:translate-x-0 h-full"
                 :class="isCollapsed ? '-translate-x-full lg:translate-x-0' : 'translate-x-0'"
             >
-                <SidePanel :collapsed="isCollapsed" @close="closeSidebar" />
+                <SidePanel :collapsed="isCollapsed" @close="closeSidebar" @select="handleNavigation" />
             </div>
 
             <div class="flex-1 flex flex-col min-w-0 h-full">
@@ -42,8 +45,9 @@ const closeSidebar = () => {
                 <div class="flex-1 overflow-y-auto flex flex-col">
                     <Heading/>
                     <main class="flex-1 mb-8">
-                        <!-- <ResourceCards/>  -->
-                        <Request/>
+                        <ResourceCards v-if="currentSection === 'overview'"/>
+                        <Request v-if="currentSection === 'request'"/>
+                        <Resolution v-if="currentSection === 'resolution'"/>
                     </main>
                     <Foot/>
                 </div>
