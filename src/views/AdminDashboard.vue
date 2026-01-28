@@ -25,6 +25,31 @@ const getComponent = computed(() => {
     }
 });
 
+const getHeaderContent = computed(() => {
+  switch (currentSection.value) {
+    case 'overview':
+      return {
+        title: 'Resource Monitoring Dashboard',
+        info: "Here's an overview of resource consumption this month."
+      };
+    case 'request':
+      return {
+        title: 'Maintenance Requests',
+        info: 'View and manage all active infrastructure and resource requests.'
+      };
+    case 'resolution':
+      return {
+        title: 'Issue Resolutions',
+        info: 'Tracking the history of resolved resource and infrastructure problems.'
+      };
+    default:
+      return {
+        title: 'Resource Monitoring Dashboard',
+        info: "Here's an overview of resource consumption this month."
+      };
+  }
+});
+
 const toggleSidebar = () => {
     isCollapsed.value = !isCollapsed.value
 }
@@ -50,7 +75,9 @@ const closeSidebar = () => {
             <div class="flex-1 flex flex-col min-w-0 h-full">
                 <Navbar @toggle-sidebar="toggleSidebar" />
                 <div class="flex-1 overflow-y-auto flex flex-col">
-                    <Heading />
+                    <transition name="fade" mode="out-in">
+                        <Heading :key="currentSection" :title="getHeaderContent.title" :info="getHeaderContent.info" />
+                    </transition>
                     <main class="flex-1 mb-8">
                         <transition name="fade" mode="out-in">
                             <component :is="getComponent" />
