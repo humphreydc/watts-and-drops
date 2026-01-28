@@ -21,8 +21,8 @@ const text = {
 const activeItemId = ref("overview");
 
 const isActive = (item) => {
-    activeItemId.value = item.id
-    emit('close')
+    activeItemId.value = item.id;
+    emit('close');
 };
 </script>
 
@@ -38,7 +38,7 @@ const isActive = (item) => {
                 <img class="w-6" src="/src/assets/images/logo.png" alt="logo">
                 <p v-if="!collapsed" class="text-(--primary-color) font-bold text-xl">{{ text.title }}</p>
             </div>
-            <button @click="emit('close')" class="lg:hidden p-2 text-gray-500">
+            <button @click="emit('close')" class="lg:hidden p-2 text-xl text-gray-500 cursor-pointer">
                 ✕
             </button>
         </div>

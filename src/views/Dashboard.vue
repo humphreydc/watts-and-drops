@@ -5,6 +5,7 @@ import SidePanel from '@/components/common/SidePanel.vue';
 import Heading from '@/components/common/Heading.vue';
 import ResourceCards from '@/components/dashboard/ResourceCards.vue';
 import Foot from '@/components/common/Foot.vue';
+import Request from '@/components/sections/Request.vue';
 
 const isCollapsed = ref(true);
 
@@ -21,7 +22,7 @@ const closeSidebar = () => {
 
 <template>
     <div class="w-full relative overflow-x-hidden">
-       <div class="flex min-h-screen">
+       <div class="flex h-screen overflow-hidden">
             <!-- Sidebar Overlay for mobile -->
             <div 
                 v-if="!isCollapsed" 
@@ -30,21 +31,22 @@ const closeSidebar = () => {
             ></div>
             
             <div 
-                class="fixed inset-y-0 left-0 z-50 transition-transform duration-300 transform lg:relative lg:translate-x-0"
+                class="fixed inset-y-0 left-0 z-50 transition-transform duration-300 transform lg:relative lg:translate-x-0 h-full"
                 :class="isCollapsed ? '-translate-x-full lg:translate-x-0' : 'translate-x-0'"
             >
                 <SidePanel :collapsed="isCollapsed" @close="closeSidebar" />
             </div>
 
-            <div class="flex-1 flex flex-col min-w-0">
+            <div class="flex-1 flex flex-col min-w-0 h-full">
                 <Navbar @toggle-sidebar="toggleSidebar" /> 
-                <Heading/>
-                <main class="flex-1">
-                    <ResourceCards/> 
-                </main>
-                <footer>
+                <div class="flex-1 overflow-y-auto flex flex-col">
+                    <Heading/>
+                    <main class="flex-1 mb-8">
+                        <!-- <ResourceCards/>  -->
+                        <Request/>
+                    </main>
                     <Foot/>
-                </footer>
+                </div>
             </div>
        </div>
     </div>

@@ -6,12 +6,8 @@ import Graph from './Graph.vue';
 
 <template>
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-4 px-4 sm:px-8 py-4">
-        <div class="space-y-4">
-            <ElectricityCard/>
-            <WaterCard/>
-        </div>
-        <div class="lg:h-full">
-            <Graph/>
-        </div>
+        <ElectricityCard/>
+        <WaterCard/>
+        <Graph/>
     </section>
 </template>

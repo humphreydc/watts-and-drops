@@ -4,7 +4,7 @@
 <template>
     <section class="px-4 sm:px-8">
         <div class="w-full overflow-x-auto">
-            <table class="w-full bg-white shadow-sm rounded-xl border-2 border-gray-200">
+            <table class="w-full bg-white shadow-sm rounded-lg">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="th-style">Student no.</th>
@@ -18,7 +18,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                     <!-- data here -->
-                    <tr class="hover:bg-gray-50 rounded-xl">
+                    <tr class="hover:bg-gray-50 transition-colors">
                         <td class="px-4 py-5 text-sm text-gray-900">2023506089</td>
                         <td class="px-4 py-5 text-sm text-gray-900">Casey Lou Garcia</td>
                         <td class="px-4 py-5 text-sm text-gray-900">Room 411</td>
@@ -30,6 +30,6 @@
                     
                 </tbody>
             </table>
-        </div>
+    </div>
     </section>
 </template>
