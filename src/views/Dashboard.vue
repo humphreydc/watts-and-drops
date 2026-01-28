@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import Navbar from '@/components/common/NavBar.vue';
 import SidePanel from '@/components/common/SidePanel.vue';
 import Heading from '@/components/common/Heading.vue';
@@ -14,6 +14,15 @@ const currentSection = ref('overview');
 const handleNavigation = (sectionId) => {
   currentSection.value = sectionId;
 }
+
+const getComponent = computed(() => {
+  switch (currentSection.value) {
+    case 'overview': return ResourceCards;
+    case 'request': return Request;
+    case 'resolution': return Resolution;
+    default: return ResourceCards;
+  }
+});
 
 const toggleSidebar = () => {
   isCollapsed.value = !isCollapsed.value
@@ -48,9 +57,11 @@ const closeSidebar = () => {
                 <div class="flex-1 overflow-y-auto flex flex-col">
                     <Heading/>
                     <main class="flex-1 mb-8">
-                        <ResourceCards v-if="currentSection === 'overview'"/>
-                        <Request v-if="currentSection === 'request'"/>
-                        <Resolution v-if="currentSection === 'resolution'"/>
+                        <router-view v-slot="{ Component }">
+                            <transition name="fade" mode="out-in">
+                                <component :is="getComponent" />
+                            </transition>
+                        </router-view>
                     </main>
                     <Foot/>
                 </div>

@@ -13,6 +13,16 @@
     --primary-color: #25B85D;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 @layer components {
   .card-border {
     @apply bg-(--bg-color) rounded-xl border p-3 sm:p-6 border-gray-200 flex 
