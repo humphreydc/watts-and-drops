@@ -57,11 +57,9 @@ const closeSidebar = () => {
                 <div class="flex-1 overflow-y-auto flex flex-col">
                     <Heading/>
                     <main class="flex-1 mb-8">
-                        <router-view v-slot="{ Component }">
-                            <transition name="fade" mode="out-in">
-                                <component :is="getComponent" />
-                            </transition>
-                        </router-view>
+                        <transition name="fade" mode="out-in">
+                            <component :is="getComponent" />
+                        </transition>
                     </main>
                     <Foot/>
                 </div>
