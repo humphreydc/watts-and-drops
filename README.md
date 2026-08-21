@@ -2,4 +2,4 @@
 
 A campus resource monitoring app that tracks electricity and water usage to boost utility efficiency and reduce waste.
 
-Built by conde and humps.
+Built by conds and humps.
